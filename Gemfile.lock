@@ -1,0 +1,61 @@
+PATH
+  remote: .
+  specs:
+    gp (0.1.0)
+      gtk3 (~> 3.0, >= 3.0.7)
+      thor (~> 0.19)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    atk (3.2.1)
+      glib2 (= 3.2.1)
+    byebug (9.1.0)
+    cairo (1.15.11)
+      native-package-installer (>= 1.0.3)
+      pkg-config (>= 1.2.2)
+    cairo-gobject (3.2.1)
+      cairo
+      glib2 (= 3.2.1)
+    gdk3 (3.2.1)
+      cairo-gobject (= 3.2.1)
+      gdk_pixbuf2 (= 3.2.1)
+      gobject-introspection (= 3.2.1)
+      pango (= 3.2.1)
+    gdk_pixbuf2 (3.2.1)
+      gio2 (= 3.2.1)
+    gio2 (3.2.1)
+      glib2 (= 3.2.1)
+      gobject-introspection (= 3.2.1)
+    glib2 (3.2.1)
+      native-package-installer (>= 1.0.3)
+      pkg-config (>= 1.2.2)
+    gobject-introspection (3.2.1)
+      glib2 (= 3.2.1)
+    gtk3 (3.2.1)
+      atk (= 3.2.1)
+      gdk3 (= 3.2.1)
+      gdk_pixbuf2 (= 3.2.1)
+      gio2 (= 3.2.1)
+      glib2 (= 3.2.1)
+      gobject-introspection (= 3.2.1)
+      pango (= 3.2.1)
+    native-package-installer (1.0.6)
+    pango (3.2.1)
+      cairo (>= 1.14.0)
+      cairo-gobject (= 3.2.1)
+      gobject-introspection (= 3.2.1)
+    pkg-config (1.2.8)
+    rake (12.3.0)
+    thor (0.20.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug (~> 9.1)
+  gp!
+  rake
+
+BUNDLED WITH
+   1.16.1

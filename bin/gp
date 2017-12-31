@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require "gp/cli"
+
+Gp::CLI.start
