@@ -101,34 +101,51 @@ module Gp
         class EvenParityProblem < Gp::KozaProblem
           def initialize(population_size, generations, size, depth, report)
             super(population_size, generations, depth, report,
-                  [And, Or, Xor, Not],
+                  [And, Or, Xor, Not, If, Iff],
                   Array.new(size) { |i| BoolVar.new i }
                  )
-            @size = size
-            @samples = 10
+            @size = 2**size
+            @inputs = Array.new(@size) 
+            @outputs = Array.new(@size)
+
+            for i in 0..@size
+              @inputs[i] = Array.new(size)
+              value = i
+              dividor = @size
+              parity = true
+              for j in 0..size
+                dividor /= 2
+                if value >= dividor
+                  @inputs[i][j] = true
+                  parity = !parity
+                  value -= dividor
+                else
+                  @inputs[i][j] = false
+                end
+              end
+              @outputs[i] = parity
+            end
+            
           end
 
           def eval_indv(indv)
            
             indv.fitness.reset
-            @samples.times {
-              env = gen_env
-              expected = function(env.vars)
-              data = DataContainer.new 0
+            indv.fitness.fitness = @size
+            @inputs.each_index { |i|
+              env = gen_env i
+              expected = @outputs[i]
+              data = DataContainer.new false
               indv.tree.eval_node env, data
-              #diff = (expected - data.get).abs
-              #indv.fitness.fitness += diff
-              #indv.fitness.hits += 1 if diff <= 0.01
+              if data.get == expected
+                indv.fitness.fitness -= 1
+                indv.fitness.hits += 1
+              end
             }
-                      
           end
 
-          def gen_env
-            #Environment.new(Array.new(@size) { rand })
-          end
-
-          def function(vars)
-            #vars.map { |v| v*v }.sum
+          def gen_env(i)
+            Environment.new(@inputs[i])
           end
         end
       end

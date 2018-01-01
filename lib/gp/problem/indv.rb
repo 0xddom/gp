@@ -9,15 +9,15 @@ module Gp
     end
 
     def reset
-      @hits = 0
-      @fitness = 0
+      @hits = 0.0
+      @fitness = 0.0
     end
 
     def <=>(o)
-      if fitness == o.fitness
+      if fitness.to_f == o.fitness.to_f
         hits <=> o.hits
       else
-        -(fitness <=> o.fitness)
+        -(fitness.to_f <=> o.fitness.to_f)
       end
     end
 
@@ -28,7 +28,7 @@ module Gp
     alias :to_s :inspect
 
     def adjusted
-      1 / (1 + fitness)
+      1 / (1 + fitness.to_f)
     end
   end
   

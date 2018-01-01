@@ -29,7 +29,6 @@ module Gp
 
         best = population.max { |i,j| i.fitness <=> j.fitness }
         @report.report curr_gen, generations, best
-
         goal_reached = best.fitness.adjusted > 0.95
         
         curr_gen += 1
@@ -44,14 +43,14 @@ module Gp
     def new_generation
       t = Tournament.new population
       new_individuals = Array.new(population_size/2) { @crossover.new(t.select, t.select).crossover }
-      
+
       while not new_individuals.empty?
         i = (0..population_size-1).to_a.sample
         if rand < population[i].fitness.adjusted
           population[i] = new_individuals.pop
         end
       end
-
+      
       population.each do |indv|
         if rand < 0.4
           indv.tree = indv.tree.mutate @generator

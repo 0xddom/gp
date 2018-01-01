@@ -2,8 +2,11 @@
 <!-- Generated with glade 3.20.0 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkWindow">
+  <object class="GtkWindow" id="main_window">
+    <property name="width_request">800</property>
+    <property name="height_request">600</property>
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Evolutionary Art</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
@@ -24,7 +27,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="new_button">
                         <property name="label">gtk-new</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -33,7 +36,7 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="open_image_menu_button">
                         <property name="label">gtk-open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -42,7 +45,7 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="save_button">
                         <property name="label">gtk-save</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -51,7 +54,7 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="save_as_button">
                         <property name="label">gtk-save-as</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -60,7 +63,7 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="preferences_button">
                         <property name="label">gtk-preferences</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -75,7 +78,7 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="close_button">
                         <property name="label">gtk-quit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -171,14 +174,16 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkImage">
+                  <object class="GtkImage" id="original_image">
+                    <property name="width_request">200</property>
+                    <property name="height_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_left">5</property>
-                    <property name="margin_right">5</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
                     <property name="margin_top">5</property>
                     <property name="margin_bottom">5</property>
-                    <property name="stock">gtk-missing-image</property>
+                    <property name="icon_size">0</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -187,8 +192,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">Abrir imágen</property>
+                  <object class="GtkButton" id="new_run_button">
+                    <property name="label" translatable="yes">Nueva evolución</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -231,13 +236,16 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkDrawingArea">
+                  <object class="GtkImage" id="best_indv">
+                    <property name="width_request">200</property>
+                    <property name="height_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_left">5</property>
-                    <property name="margin_right">5</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
                     <property name="margin_top">5</property>
                     <property name="margin_bottom">5</property>
+                    <property name="icon_size">0</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -246,7 +254,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="start_button">
                     <property name="label" translatable="yes">Empezar</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -275,7 +283,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="info_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_top">10</property>

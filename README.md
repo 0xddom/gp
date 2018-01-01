@@ -1,7 +1,7 @@
-gp
+Genetic programming demos
 =================
 
-GP experiments in clasic Koza and OOGP
+GP experiments in classic Koza and OOGP
 
 ## Setup
 
@@ -9,7 +9,7 @@ GP experiments in clasic Koza and OOGP
 
 ## Usage
 
-_Fill in with gem usage information._
+    gp help
 
 ## Development
 
